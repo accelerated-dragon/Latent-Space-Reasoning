@@ -300,7 +300,8 @@ class EvolutionLoop:
 
             # Check patience
             if generations_without_improvement >= self.config.convergence.patience:
-                log_event("PATIENCE_EXCEEDED", level=LogLevel.NORMAL)
+                log_event("OPTIMAL_FOUND", level=LogLevel.NORMAL,
+                         message="No improvement found after several generations. Stopping evolution.")
                 return EvolutionResult(
                     best_latent=best_latent,
                     best_score=best_score,
