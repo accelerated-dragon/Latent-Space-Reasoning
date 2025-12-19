@@ -171,11 +171,12 @@ make run  # or: latent-reason run "test query" --encoder Qwen/Qwen3-0.6B
 |-------|------|------|---------|----------|
 | `Qwen/Qwen3-4B` | 4B | ~8 GB | Excellent | Best quality output |
 | `Qwen/Qwen3-1.7B` | 1.7B | ~4 GB | Very Good | Balance of speed/quality |
+| `deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B` | 1.5B | ~3 GB | Very Good | Strong reasoning, efficient |
 | `Qwen/Qwen3-0.6B` | 0.6B | ~2 GB | Good | Fast iteration, CPU-friendly |
 | `microsoft/phi-2` | 2.7B | ~6 GB | Good | Alternative option |
 | `ibm-granite/granite-4.0-h-1b` | 1B | ~2 GB | Good | Compact alternative |
 
-**Note**: All models have been tested and work well. Qwen3 models generally produce the highest quality output.
+**Note**: All models have been tested and work well. Qwen3 models generally produce the highest quality output. DeepSeek-R1-Distill is particularly strong for reasoning tasks.
 
 ## CLI Reference
 
