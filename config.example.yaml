@@ -48,10 +48,10 @@ encoder:
   device: "auto"
 
   # Quantization mode
-  # "auto" - Try 4-bit on CUDA, fall back if unavailable
-  # "4bit" - Force 4-bit quantization (requires bitsandbytes + CUDA)
+  # "4bit" - Default. Uses bitsandbytes on CUDA, disables if unavailable
+  # "auto" - Try 4-bit on CUDA, disable if unavailable
   # "none" - Disable quantization
-  quantization: "auto"
+  quantization: "4bit"
 
   # Maximum input length in tokens
   # Longer inputs need more memory but can handle more complex queries

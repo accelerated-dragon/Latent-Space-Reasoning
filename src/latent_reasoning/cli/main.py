@@ -157,7 +157,7 @@ def run(
         help="Model for encoding/decoding. Options: Qwen/Qwen3-4B (best quality, ~8GB), Qwen/Qwen3-1.7B (balanced, ~4GB), Qwen/Qwen3-0.6B (fast, ~2GB)",
     ),
     quantization: str = typer.Option(
-        "auto",
+        "4bit",
         "--quantization",
         help="Quantization mode: auto, 4bit, none",
     ),
@@ -442,7 +442,7 @@ def compare(
         help="Encoder model (HuggingFace ID or path)",
     ),
     quantization: str = typer.Option(
-        "auto",
+        "4bit",
         "--quantization",
         help="Quantization mode: auto, 4bit, none",
     ),
@@ -594,7 +594,7 @@ def baseline(
         help="Encoder model",
     ),
     quantization: str = typer.Option(
-        "auto",
+        "4bit",
         "--quantization",
         help="Quantization mode: auto, 4bit, none",
     ),

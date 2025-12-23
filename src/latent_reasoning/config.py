@@ -82,7 +82,7 @@ class EncoderConfig(BaseModel):
 
     # Hardware settings
     device: str = "auto"           # Device: "auto", "cuda", "cuda:0", "cpu"
-    quantization: Literal["auto", "none", "4bit"] = "auto"
+    quantization: Literal["auto", "none", "4bit"] = "4bit"
     max_length: int = Field(default=2048, ge=1, le=32768)  # Maximum input sequence length
 
     class Config:

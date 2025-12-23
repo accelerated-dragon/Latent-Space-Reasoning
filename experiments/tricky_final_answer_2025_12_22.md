@@ -50,3 +50,27 @@ Notes:
   even with max_tokens=1024.
 - No clear quality differences between quantization levels or decode strategy based on
   answer completeness in this run.
+
+## Tricky Plan Evaluation (2025-12-22, 2048 tokens)
+Purpose: Evaluate plan-quality decoding (not final-answer-only) on tests 34-43 with a
+2048 token decode budget across quantization and decode strategies.
+
+Setup:
+- Models: Qwen/Qwen3-0.6B, Qwen/Qwen3-1.7B
+- Evolution: chains=3, generations=3, survivors=2
+- Quantization: none, 4bit
+- Decode strategy: best, combined
+
+Artifacts (gitignored):
+- eval_results/latent_matrix_tricky_2048_best
+- eval_results/latent_matrix_tricky_2048_combined
+
+Top findings:
+- Combined did not consistently improve answer quality vs best; results were mixed or tied.
+- Qwen3-1.7B generally outperformed Qwen3-0.6B on answer correctness/coverage.
+- 4bit tracked close to none overall; best+4bit is the default going forward.
+- Example corrects: Qwen3-1.7B + 4bit + best reached the correct CRT solution (N=1103)
+  and the correct 6-step water jug sequence; Qwen3-1.7B + 4bit + combined produced
+  the correct 3/4 for test41 and a correct water jug sequence.
+- The inf/NaN seed conversion error was fixed in src/latent_reasoning/core/encoder.py,
+  and the 2048 runs completed without that failure.

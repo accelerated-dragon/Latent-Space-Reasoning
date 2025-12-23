@@ -203,7 +203,7 @@ latent-reason run "Create test plan" --output result.json --format json
 
 **Key Options:**
 - `--encoder`: Model to use (default: Qwen/Qwen3-0.6B)
-- `--quantization`: Quantization mode (auto, 4bit, none)
+- `--quantization`: Quantization mode (default: 4bit; options: auto, 4bit, none)
 - `--decode-strategy`: Decode strategy (best, combined)
 - `--chains`: Number of parallel evolution chains (default: 5)
 - `--generations`: Maximum evolution generations (default: 10)
@@ -260,7 +260,7 @@ encoder:
   layer: -4                     # Hidden layer to extract (-4 = 4th from last)  
   pooling: "mean"               # How to pool sequence: mean, last, cls
   device: "auto"                # Device: auto, cuda, cpu
-  quantization: "auto"          # Quantization: auto, 4bit, none
+  quantization: "4bit"          # Quantization: 4bit (default), auto, none
 
 evolution:
   chains: 8                     # Number of parallel evolution chains

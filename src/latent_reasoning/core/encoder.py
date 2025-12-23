@@ -564,6 +564,7 @@ class LLMEncoder(Encoder):
 
         # Use multiple latent statistics for diversity - small mutations should produce different outputs
         latent_flat = latent.flatten().float()
+        latent_flat = torch.nan_to_num(latent_flat, nan=0.0, posinf=0.0, neginf=0.0)
         latent_mean = latent_flat.mean().item()
         latent_std = latent_flat.std().item()
         latent_sum = latent_flat.sum().item()
