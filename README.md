@@ -32,6 +32,14 @@ Instead of generating text directly, this engine:
 
 The evolutionary process in latent space finds representations that decode to more relevant, technical responses rather than generic templates.
 
+## Experimental Notes
+
+Recent 0.6B baseline vs LR (4-bit, best decode) runs on tests 34-43 show a clear qualitative split in outputs:
+- Baseline often meanders or never lands on a final answer.
+- LR tends to produce decisive, structured answers (even when wrong), suggesting the judge is steering style but not correctness yet.
+
+This is strong proof-of-concept that better judges and checkers should turn that decisiveness into accuracy. See `experiments/qwen3_0_6b_baseline_vs_lr_4bit_2025_12_23.md`.
+
 ## Key Features
 
 - **Multi-model support**: Works with Qwen3, Phi, Granite, and other transformer models
